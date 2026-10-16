@@ -1,5 +1,9 @@
 <template>
   <el-header class="page-header" height="60px">
+    <!-- 导航栏返回按钮 -->
+    <el-button class="back-btn" circle @click="goBack">
+      <el-icon><ArrowLeft /></el-icon>
+    </el-button>
     <div class="logo">
       <el-icon><Guide /></el-icon>
       <span>龙远湘 · 个人主页</span>
@@ -39,11 +43,21 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useUserStore } from '../stores/user'
 
 const route = useRoute()
+const router = useRouter()
 const userStore = useUserStore()
+
+// 返回上一页
+const goBack = () => {
+  if (window.history.length > 1) {
+    router.back()
+  } else {
+    router.push('/home')
+  }
+}
 
 // 高亮当前路由对应的菜单项
 const activeIndex = computed(() => {
@@ -61,6 +75,16 @@ const activeIndex = computed(() => {
   align-items: center;
   background: #1677ff;
   padding: 0 24px;
+}
+.back-btn {
+  margin-right: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: none;
+}
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  color: #fff;
 }
 .logo {
   display: flex;

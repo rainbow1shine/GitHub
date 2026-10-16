@@ -21,7 +21,7 @@
       <input v-model="person.email" />
     </div>
     <p class="tip">
-      此处修改会实时同步到全局 User Store 的 userInfo（演示跨组件共享）；如需持久化保存，请到「后台管理 → 编辑个人信息」调用 updateInfo action。
+      此处修改会实时同步到全局 User Store；如需持久化保存，请到「后台管理 → 编辑个人信息」调用 updateInfo action。
     </p>
   </div>
 </template>

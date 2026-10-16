@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>项目列表（来自 Project Store，共 {{ projectStore.projectCount }} 个）</h3>
+    <h3>项目列表（共 {{ projectStore.projectCount }} 个）</h3>
     <!-- el-table 表格展示项目列表 -->
     <el-table :data="projects" stripe border style="max-width: 640px">
       <el-table-column prop="id" label="ID" width="70" />

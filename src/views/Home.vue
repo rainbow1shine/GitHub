@@ -48,16 +48,16 @@
                 入学重庆工程学院，计算机科学与技术专业
               </el-timeline-item>
               <el-timeline-item timestamp="2025.01" placement="top">
-                实验一：完成个人静态主页（HTML/CSS/Vue3-CDN）
+                实验一：完成个人静态主页
               </el-timeline-item>
               <el-timeline-item timestamp="2025.06" placement="top">
-                实验二：Vue 组件化开发（props / emit / model / 插槽）
+                实验二：Vue 组件化开发
               </el-timeline-item>
               <el-timeline-item timestamp="2025.12" placement="top">
-                实验三：Vue Router 路由配置（嵌套路由、动态路由、命名路由）
+                实验三：Vue Router 路由配置
               </el-timeline-item>
               <el-timeline-item timestamp="2026.10" placement="top" type="warning" :hollow="true">
-                实验四（进行中）：Pinia 状态管理 + Element Plus 组件库
+                实验四：Pinia 状态管理 + Element Plus 组件库
               </el-timeline-item>
             </el-timeline>
           </el-card>
@@ -68,15 +68,24 @@
           <el-card class="mb20">
             <template #header>
               <div class="card-head">
-                <span>🗂️ 项目展示（来自 Project Store，共 {{ projectStore.projectCount }} 个）</span>
-                <!-- el-input 搜索框 -->
-                <el-input
-                  v-model="searchKey"
-                  placeholder="搜索项目..."
-                  :prefix-icon="Search"
-                  style="width: 200px"
-                  clearable
-                />
+                <span>🗂️ 项目展示（共 {{ projectStore.projectCount }} 个）</span>
+                <div class="head-right">
+                  <!-- 明暗模式切换 -->
+                  <el-switch
+                    v-model="isDark"
+                    inline-prompt
+                    active-text="暗色"
+                    inactive-text="亮色"
+                    class="theme-switch"
+                  />
+                  <el-input
+                    v-model="searchKey"
+                    placeholder="搜索项目..."
+                    :prefix-icon="Search"
+                    style="width: 200px"
+                    clearable
+                  />
+                </div>
               </div>
             </template>
             <!-- el-table 表格展示项目列表 -->
@@ -121,7 +130,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { Search } from '@element-plus/icons-vue'
@@ -141,6 +150,13 @@ const { projects } = storeToRefs(projectStore)
 const skillList = ref(['HTML', 'CSS', 'JavaScript', 'Vue3', 'Pinia', 'Element Plus', 'Python', 'MySQL', 'Git', 'Node'])
 const searchKey = ref('')
 const skillLevel = ref(4)
+
+// 明暗模式切换：读取 localStorage 记忆用户选择
+const isDark = ref(localStorage.getItem('theme') === 'dark')
+watch(isDark, (val) => {
+  document.documentElement.classList.toggle('dark', val)
+  localStorage.setItem('theme', val ? 'dark' : 'light')
+}, { immediate: true })
 
 // 按关键词过滤项目
 const filteredProjects = computed(() => {
@@ -197,6 +213,14 @@ onMounted(() => {
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
+}
+.head-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.theme-switch {
+  flex-shrink: 0;
 }
 .skill-tag {
   margin: 0 8px 8px 0;

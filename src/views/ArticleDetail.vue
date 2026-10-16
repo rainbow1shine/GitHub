@@ -13,7 +13,7 @@
       <el-divider />
       <p class="content">{{ article.content }}</p>
     </el-card>
-    <el-empty v-else description="没有找到该文章（可能已被删除）" />
+    <el-empty v-else description="没有找到该文章" />
 
     <el-button @click="$router.back()" class="mt16">返回文章列表</el-button>
   </div>

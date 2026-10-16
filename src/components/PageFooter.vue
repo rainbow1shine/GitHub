@@ -1,6 +1,6 @@
 <template>
   <el-footer class="page-footer" height="50px">
-    © 2026 24计科2班 龙远湘 · Vue3 + Pinia + Element Plus（实验四）
+    © 2026 24计科2班 龙远湘 · Vue3 + Pinia + Element Plus
   </el-footer>
 </template>
 

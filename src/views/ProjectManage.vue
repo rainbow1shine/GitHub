@@ -2,7 +2,7 @@
   <el-card class="manage">
     <template #header>
       <div class="card-head">
-        <span>🗂️ 项目管理（增删改查，共 {{ projectStore.projectCount }} 个）</span>
+        <span>🗂️ 项目管理（共 {{ projectStore.projectCount }} 个）</span>
         <el-button type="primary" :icon="Plus" @click="openAdd">新增项目</el-button>
       </div>
     </template>

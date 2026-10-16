@@ -1,6 +1,6 @@
 <template>
   <div class="skill-search">
-    <h3>技能清单（defineModel 双向绑定）</h3>
+    <h3>技能清单</h3>
     <input v-model="searchKey" placeholder="输入关键词过滤技能..." />
     <div class="skills">
       <span v-for="s in skillList" :key="s" class="tag">{{ s }}</span>

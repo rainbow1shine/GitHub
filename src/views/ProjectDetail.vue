@@ -13,7 +13,7 @@
         </el-descriptions-item>
       </el-descriptions>
     </el-card>
-    <el-empty v-else description="没有找到该项目（可能已被删除）" />
+    <el-empty v-else description="没有找到该项目" />
 
     <div class="btn-row">
       <el-button @click="goBack">返回上一页</el-button>

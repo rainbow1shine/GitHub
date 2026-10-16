@@ -14,4 +14,7 @@ body {
   font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
   background: #f5f7fa;
 }
+html.dark body {
+  background: #141414;
+}
 </style>

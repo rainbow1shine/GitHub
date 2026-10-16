@@ -4,7 +4,7 @@
       <template #header>
         <div class="card-head">
           <span>🛠️ 后台管理中心</span>
-          <el-tag type="danger" size="small">需要登录访问（路由守卫）</el-tag>
+          <el-tag type="danger" size="small">需要登录访问</el-tag>
         </div>
       </template>
       <p>

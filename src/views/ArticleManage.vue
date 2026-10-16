@@ -2,7 +2,7 @@
   <el-card class="manage">
     <template #header>
       <div class="card-head">
-        <span>📝 文章管理（增删改查，共 {{ articleStore.articleCount }} 篇）</span>
+        <span>📝 文章管理（共 {{ articleStore.articleCount }} 篇）</span>
         <!-- 新增按钮：打开对话框 -->
         <el-button type="primary" :icon="Plus" @click="openAdd">新增文章</el-button>
       </div>
